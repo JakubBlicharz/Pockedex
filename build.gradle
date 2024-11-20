@@ -1,6 +1,8 @@
 buildscript {
     ext {
-        compose_version = '1.3.1' // Stabilna wersja Compose
+        kotlin_version = '1.8.0'
+        compose_version = '1.4.0' // Stabilna wersja Compose zgodna z wersją Kotlina https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+        hilt_version = '2.44'
     }
     repositories {
         google()
@@ -8,8 +10,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.3.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.42'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
     }
 }
 
