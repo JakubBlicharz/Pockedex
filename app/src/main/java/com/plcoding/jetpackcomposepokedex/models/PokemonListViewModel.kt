@@ -26,7 +26,7 @@ class PokemonListViewModel @Inject constructor(
 
     private var curPage = 0
 
-    var pokemonList = mutableStateOf(listOf<PokedexListEntry>())
+    var pokemonList = mutableStateOf<List<PokedexListEntry>>(emptyList())
     var loadError = mutableStateOf("")
     var isLoading = mutableStateOf(false)
     var endReached = mutableStateOf(false)
@@ -37,8 +37,13 @@ class PokemonListViewModel @Inject constructor(
 
     fun loadPokemonPaginated() {
         viewModelScope.launch{
+
             isLoading.value = true
             val result = repository.getPokemonList(PAGE_SIZE, curPage * PAGE_SIZE)
+
+
+
+
             when(result) {
                 is Resource.Success -> {
                     endReached.value = curPage * PAGE_SIZE >= result.data!!.count
@@ -49,7 +54,8 @@ class PokemonListViewModel @Inject constructor(
                             entry.url.takeLastWhile { it.isDigit() }
                         }
                         val url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png"
-                        PokedexListEntry(entry.name.capitalize(Locale.ROOT), url, number.toInt())
+                        PokedexListEntry(entry.name.replaceFirstChar { it.uppercaseChar() }, url, number.toInt())
+
                     }
                     curPage++
 

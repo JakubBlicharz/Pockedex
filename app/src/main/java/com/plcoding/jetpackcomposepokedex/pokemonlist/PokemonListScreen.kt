@@ -110,14 +110,11 @@ fun SearchBar(
                 color = Color.LightGray,
                 modifier = Modifier
                     .padding(horizontal = 20.dp, vertical = 12.dp)
-            ){
-
-            }
+            )
 
 
         }
-        Spacer(modifier = Modifier.height(16.dp))
-        PokemonList(navController = navController)
+
 
     }
 
@@ -141,10 +138,24 @@ fun PokemonList(
             pokemonList.size / 2 + 1
         }
         items(itemCount) {
-            if(it >= itemCount -1 && !endReached) {
+            if(it >= itemCount -1 && !endReached && !isLoading) {
                 viewModel.loadPokemonPaginated()
             }
             PokedexRow(rowIndex = it, entries = pokemonList, navController = navController)
+        }
+    }
+
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier.fillMaxSize()
+    ){
+        if(isLoading){
+            CircularProgressIndicator(color = MaterialTheme.colors.primary)
+        }
+        if(loadError.isNotEmpty()) {
+            RetrySection(error = loadError) {
+                viewModel.loadPokemonPaginated()
+            }
         }
     }
 
