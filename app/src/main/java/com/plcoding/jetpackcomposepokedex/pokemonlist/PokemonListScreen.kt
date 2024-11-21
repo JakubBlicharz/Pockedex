@@ -25,16 +25,19 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import coil.compose.AsyncImage
+import coil.compose.AsyncImagePainter
 import coil.request.ImageRequest
-import com.google.accompanist.coil.CoilImage
 import com.plcoding.jetpackcomposepokedex.R
 import com.plcoding.jetpackcomposepokedex.models.PokedexListEntry
 import com.plcoding.jetpackcomposepokedex.models.PokemonListViewModel
@@ -68,6 +71,8 @@ fun PokemonListScreen(
             ) {
 
             }
+            Spacer(modifier = Modifier.height(16.dp))
+            PokemonList(navController = navController)
         }
     }
 }
@@ -192,29 +197,23 @@ fun PokedexEntry(
                 )
             }
     ){
-        Column{
-            CoilImage(
-                request = ImageRequest.Builder(LocalContext.current)
-                    .data(entry.imageUrl)
-                    .target {
-                        viewModel.calcDominantColor(it) { color ->
+        Column(modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+            ){
+            AsyncImage(
+                model = entry.imageUrl,
+                contentDescription = entry.pokemonName,
+                modifier = Modifier
+                .size(120.dp)
+                    .align(Alignment.CenterHorizontally),
+                onState = { state ->
+                    if(state is AsyncImagePainter.State.Success){
+                        viewModel.calcDominantColor(state.result.drawable) { color ->
                             dominantColor = color
                         }
                     }
-                    .build(),
-                contentDescription = entry.pokemonName,
-                fadeIn = true,
-                modifier = Modifier
-                    .size(120.dp)
-                    .align(CenterHorizontally)
-
-            ){
-                CircularProgressIndicator(
-                    color = MaterialTheme.colors.primary,
-                    modifier = Modifier.scale(0.5f)
-
-                )
-            }
+                }
+            )
             Text(
                 text = entry.pokemonName,
                 fontFamily = RobotoCondensed,
