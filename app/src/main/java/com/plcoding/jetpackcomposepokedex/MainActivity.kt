@@ -16,9 +16,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.plcoding.jetpackcomposepokedex.pokemondetail.PokemonDetailScreen
 import com.plcoding.jetpackcomposepokedex.pokemonlist.PokemonListScreen
 import com.plcoding.jetpackcomposepokedex.ui.theme.JetpackComposePokedexTheme
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -54,7 +56,7 @@ class MainActivity : ComponentActivity() {
 
                         PokemonDetailScreen(
                             dominantColor = dominantColor,
-                            pokemonName = pokemonName,
+                            pokemonName = pokemonName.lowercase(Locale.ROOT) ?: "",
                             navController = navController
                         )
                     }
@@ -64,20 +66,3 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun PokemonDetailScreen(
-    dominantColor: Color,
-    pokemonName: String,
-    navController: NavController
-) {
-    Surface(
-        color = dominantColor,
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Text(
-            text = pokemonName,
-            style = MaterialTheme.typography.h4,
-            color = Color.White
-        )
-    }
-}
