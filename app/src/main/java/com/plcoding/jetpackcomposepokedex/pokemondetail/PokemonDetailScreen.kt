@@ -318,7 +318,7 @@ fun PokemonStat(
     statValue: Int,
     statMaxValue: Int,
     statColor: Color,
-    height: Dp = 20.dp,
+    height: Dp = 28.dp,
     animDuration: Int = 1000,
     animDelay: Int = 0
 ){

@@ -1,17 +1,18 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Other(
-    @Json(name = "dream_world")
+    @SerializedName("dream_world")
     val dreamWorld: DreamWorld,
-    @Json(name = "home")
+    @SerializedName("home")
     val home: Home,
-    @Json(name = "official-artwork")
+    @SerializedName("official-artwork")
     val officialArtwork: OfficialArtwork,
-    @Json(name = "showdown")
+    @SerializedName("showdown")
     val showdown: Showdown
 )

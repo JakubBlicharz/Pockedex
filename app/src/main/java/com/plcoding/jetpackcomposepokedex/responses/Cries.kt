@@ -1,13 +1,14 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Cries(
-    @Json(name = "latest")
+    @SerializedName("latest")
     val latest: String,
-    @Json(name = "legacy")
+    @SerializedName("legacy")
     val legacy: String
 )

@@ -1,49 +1,50 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Pokemon(
-    @Json(name = "abilities")
+    @SerializedName("abilities")
     val abilities: List<Ability>,
-    @Json(name = "base_experience")
+    @SerializedName("base_experience")
     val baseExperience: Int,
-    @Json(name = "cries")
+    @SerializedName("cries")
     val cries: Cries,
-    @Json(name = "forms")
+    @SerializedName("forms")
     val forms: List<Form>,
-    @Json(name = "game_indices")
+    @SerializedName("game_indices")
     val gameIndices: List<GameIndice>,
-    @Json(name = "height")
+    @SerializedName("height")
     val height: Int,
-    @Json(name = "held_items")
+    @SerializedName("held_items")
     val heldItems: List<Any?>,
-    @Json(name = "id")
+    @SerializedName("id")
     val id: Int,
-    @Json(name = "is_default")
+    @SerializedName("is_default")
     val isDefault: Boolean,
-    @Json(name = "location_area_encounters")
+    @SerializedName("location_area_encounters")
     val locationAreaEncounters: String,
-    @Json(name = "moves")
+    @SerializedName("moves")
     val moves: List<Move>,
-    @Json(name = "name")
+    @SerializedName("name")
     val name: String,
-    @Json(name = "order")
+    @SerializedName("order")
     val order: Int,
-    @Json(name = "past_abilities")
+    @SerializedName("past_abilities")
     val pastAbilities: List<Any?>,
-    @Json(name = "past_types")
+    @SerializedName("past_types")
     val pastTypes: List<Any?>,
-    @Json(name = "species")
+    @SerializedName("species")
     val species: Species,
-    @Json(name = "sprites")
+    @SerializedName("sprites")
     val sprites: Sprites,
-    @Json(name = "stats")
+    @SerializedName("stats")
     val stats: List<Stat>,
-    @Json(name = "types")
+    @SerializedName("types")
     val types: List<Type>,
-    @Json(name = "weight")
+    @SerializedName("weight")
     val weight: Int
 )

@@ -68,11 +68,11 @@ fun parseStatColor(stat: Stat): Color {
 fun parseStatToAbbr(stat: Stat): String{
     return when(stat.stat.name.lowercase()){
         "hp" -> "HP"
-        "attack" -> "Atk"
-        "defense" -> "Def"
-        "special-attack" -> "SpAtk"
-        "special-defense" -> "SpDef"
-        "speed" -> "Spd"
+        "attack" -> "Attack"
+        "defense" -> "Defense"
+        "special-attack" -> "Special Attack"
+        "special-defense" -> "Special Defense"
+        "speed" -> "Speed"
         else -> ""
     }
 }

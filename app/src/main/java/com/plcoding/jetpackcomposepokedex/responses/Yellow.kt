@@ -1,21 +1,22 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Yellow(
-    @Json(name = "back_default")
+    @SerializedName("back_default")
     val backDefault: String,
-    @Json(name = "back_gray")
+    @SerializedName("back_gray")
     val backGray: String,
-    @Json(name = "back_transparent")
+    @SerializedName("back_transparent")
     val backTransparent: String,
-    @Json(name = "front_default")
+    @SerializedName("front_default")
     val frontDefault: String,
-    @Json(name = "front_gray")
+    @SerializedName("front_gray")
     val frontGray: String,
-    @Json(name = "front_transparent")
+    @SerializedName("front_transparent")
     val frontTransparent: String
 )

@@ -1,25 +1,26 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Platinum(
-    @Json(name = "back_default")
+    @SerializedName("back_default")
     val backDefault: String,
-    @Json(name = "back_female")
+    @SerializedName("back_female")
     val backFemale: Any,
-    @Json(name = "back_shiny")
+    @SerializedName("back_shiny")
     val backShiny: String,
-    @Json(name = "back_shiny_female")
+    @SerializedName("back_shiny_female")
     val backShinyFemale: Any,
-    @Json(name = "front_default")
+    @SerializedName("front_default")
     val frontDefault: String,
-    @Json(name = "front_female")
+    @SerializedName("front_female")
     val frontFemale: Any,
-    @Json(name = "front_shiny")
+    @SerializedName("front_shiny")
     val frontShiny: String,
-    @Json(name = "front_shiny_female")
+    @SerializedName("front_shiny_female")
     val frontShinyFemale: Any
 )

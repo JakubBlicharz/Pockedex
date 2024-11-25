@@ -1,25 +1,26 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Versions(
-    @Json(name = "generation-i")
+    @SerializedName("generation-i")
     val generationI: GenerationI,
-    @Json(name = "generation-ii")
+    @SerializedName("generation-ii")
     val generationIi: GenerationIi,
-    @Json(name = "generation-iii")
+    @SerializedName("generation-iii")
     val generationIii: GenerationIii,
-    @Json(name = "generation-iv")
+    @SerializedName("generation-iv")
     val generationIv: GenerationIv,
-    @Json(name = "generation-v")
+    @SerializedName("generation-v")
     val generationV: GenerationV,
-    @Json(name = "generation-vi")
+    @SerializedName("generation-vi")
     val generationVi: GenerationVi,
-    @Json(name = "generation-vii")
+    @SerializedName("generation-vii")
     val generationVii: GenerationVii,
-    @Json(name = "generation-viii")
+    @SerializedName("generation-viii")
     val generationViii: GenerationViii
 )

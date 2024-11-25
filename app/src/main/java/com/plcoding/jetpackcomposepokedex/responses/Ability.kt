@@ -1,15 +1,17 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+
 @JsonClass(generateAdapter = true)
 data class Ability(
-    @Json(name = "ability")
+    @SerializedName("ability")
     val ability: AbilityX,
-    @Json(name = "is_hidden")
+    @SerializedName("is_hidden")
     val isHidden: Boolean,
-    @Json(name = "slot")
+    @SerializedName("slot")
     val slot: Int
 )

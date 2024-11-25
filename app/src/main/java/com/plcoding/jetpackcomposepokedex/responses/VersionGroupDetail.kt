@@ -1,15 +1,16 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class VersionGroupDetail(
-    @Json(name = "level_learned_at")
+    @SerializedName("level_learned_at")
     val levelLearnedAt: Int,
-    @Json(name = "move_learn_method")
+    @SerializedName("move_learn_method")
     val moveLearnMethod: MoveLearnMethod,
-    @Json(name = "version_group")
+    @SerializedName("version_group")
     val versionGroup: VersionGroup
 )

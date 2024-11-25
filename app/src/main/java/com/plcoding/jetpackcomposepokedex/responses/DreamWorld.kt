@@ -1,13 +1,14 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class DreamWorld(
-    @Json(name = "front_default")
+    @SerializedName("front_default")
     val frontDefault: String,
-    @Json(name = "front_female")
+    @SerializedName("front_female")
     val frontFemale: Any
 )

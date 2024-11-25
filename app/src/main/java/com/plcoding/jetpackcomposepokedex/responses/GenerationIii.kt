@@ -1,15 +1,16 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class GenerationIii(
-    @Json(name = "emerald")
+    @SerializedName("emerald")
     val emerald: Emerald,
-    @Json(name = "firered-leafgreen")
+    @SerializedName("firered-leafgreen")
     val fireredLeafgreen: FireredLeafgreen,
-    @Json(name = "ruby-sapphire")
+    @SerializedName("ruby-sapphire")
     val rubySapphire: RubySapphire
 )

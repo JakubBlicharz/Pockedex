@@ -1,17 +1,18 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class PokemonList(
-    @Json(name = "count")
+    @SerializedName("count")
     val count: Int,
-    @Json(name = "next")
+    @SerializedName("next")
     val next: String,
-    @Json(name = "previous")
+    @SerializedName("previous")
     val previous: Any,
-    @Json(name = "results")
+    @SerializedName("results")
     val results: List<Result>
 )

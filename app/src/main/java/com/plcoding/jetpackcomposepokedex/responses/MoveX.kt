@@ -1,13 +1,14 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class MoveX(
-    @Json(name = "name")
+    @SerializedName("name")
     val name: String,
-    @Json(name = "url")
+    @SerializedName("url")
     val url: String
 )

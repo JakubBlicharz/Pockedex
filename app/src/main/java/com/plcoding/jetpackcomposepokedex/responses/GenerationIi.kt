@@ -1,15 +1,16 @@
 package com.plcoding.jetpackcomposepokedex.responses
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class GenerationIi(
-    @Json(name = "crystal")
+    @SerializedName("crystal")
     val crystal: Crystal,
-    @Json(name = "gold")
+    @SerializedName("gold")
     val gold: Gold,
-    @Json(name = "silver")
+    @SerializedName("silver")
     val silver: Silver
 )
